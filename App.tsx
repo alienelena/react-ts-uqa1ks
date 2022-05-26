@@ -19,28 +19,6 @@ import { styled } from '@mui/material/styles';
 import Link from '@mui/material/Link';
 import { purple } from '@mui/material/colors';
 import { useState } from "react";
-import { alpha } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
-import TableSortLabel from '@mui/material/TableSortLabel';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
-import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
-import DeleteIcon from '@mui/icons-material/Delete';
-import FilterListIcon from '@mui/icons-material/FilterList';
-import { visuallyHidden } from '@mui/utils';
-
-
 
 const Items = [
   {
@@ -98,6 +76,8 @@ const images = [
     width:'100%'
   },
 ];
+
+//
 
 const App = () => {
 
@@ -174,7 +154,6 @@ const App = () => {
     backgroundPosition: 'center 40%',
   });
 //
-
   return (
     <React.Fragment>
       <CssBaseline />
@@ -329,10 +308,8 @@ const App = () => {
           </Grid>
         ))}
       </Grid>
-
-    <Grid container>
-      
-    </Grid>
+          
+    
     </React.Fragment>
   );
 };
