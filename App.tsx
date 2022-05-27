@@ -97,6 +97,28 @@ const images = [
 ];
 
 //
+function createData(
+  index: number,
+  productName: string,
+  condition: string,
+  quantity: number,
+) {
+  return { index, productName, condition, quantity};
+}
+
+const rows = [
+  createData(1,'ABC','ASD',0),
+];
+
+const tableHeaders = {
+index: 'Index',
+productName: 'Product Name', 
+condition:'Condition', 
+quantity:'Quantity',
+};
+
+
+//
 
 const App = () => {
 
@@ -341,17 +363,19 @@ const App = () => {
             <TableCell align="right">Quantity</TableCell>
           </TableRow>
         </TableHead>
-        {/* <TableBody>
+        <TableBody>
           {rows.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.index}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell component="th"></TableCell>
-              <TableCell align="right"></TableCell>
+              <TableCell component="th">{row.index}</TableCell>
+              <TableCell component="th">{row.productName}</TableCell>
+              <TableCell align="right">{row.condition}</TableCell>
+              <TableCell align="right">{row.quantity}</TableCell>
             </TableRow>
           ))}
-        </TableBody> */}
+        </TableBody>
       </Table>
     </TableContainer>
 
