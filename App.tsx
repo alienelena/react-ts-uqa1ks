@@ -98,12 +98,6 @@ const images = [
 
 //
 
-
-
-
-
-//
-
 const App = () => {
 
   const [clickedButton, setClickedButton] = useState('');
@@ -324,7 +318,7 @@ const App = () => {
               </CardContent>
               <CardActions>
                 {conditions.map(({ conditionName, ...props }, index) => (
-                  <Button key={index} {...props} onClick={buttonHandler} className="button" name={name+conditionName}>
+                  <Button key={index} {...props} onClick={buttonHandler} className="button" name={productName+conditionName}>
                     {conditionName}
                   </Button>
                 ))}
@@ -333,6 +327,36 @@ const App = () => {
           </Grid>
         ))}
       </Grid>
+      <Grid Container sx={{p:4}}>
+      </Grid>
+
+
+      <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Index</TableCell>
+            <TableCell align="right">Product Name</TableCell>
+            <TableCell align="right">Condition</TableCell>
+            <TableCell align="right">Quantity</TableCell>
+          </TableRow>
+        </TableHead>
+        {/* <TableBody>
+          {rows.map((row) => (
+            <TableRow
+              key={row.name}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th"></TableCell>
+              <TableCell align="right"></TableCell>
+            </TableRow>
+          ))}
+        </TableBody> */}
+      </Table>
+    </TableContainer>
+
+
+
 
 
     
