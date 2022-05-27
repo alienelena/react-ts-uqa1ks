@@ -41,17 +41,17 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 
 const Items = [
   {
-    name: 'DJI Mini3 Pro',
+    productName: 'DJI Mini3 Pro',
     image:
       'https://www.bhphotovideo.com/images/images1500x1500/dji_cp_ma_00000492_02_mini_3_pro_with_1700260.jpg',
   },
   {
-    name: 'DJI Air 2S',
+    productName: 'DJI Air 2S',
     image:
       'https://www.fortress.com.hk/medias/1-inch-CMOS-Sensor-12312360.jpg?context=bWFzdGVyfGZyb250em9vbXw1NDUyNnxpbWFnZS9qcGVnfGZyb250em9vbS9oNDcvaDAyLzk3MjM5MjEyMzU5OTguanBnfDBiODcxZmQ5MWRkYjA5ZDRmZDZmY2U4ZDcyOTQ2ODY4ZWJlMDA5YjEyN2ZlNjRkNjgzMzUxZGRjN2NkNGRmMjc',
   },
   {
-    name: 'DJI FPV',
+    productName: 'DJI FPV',
     image:
       'https://www.scandinavianphoto.se/globalassets/1050797.jpg?ref=81F07EDA5A&w=960&h=960&mode=max',
   },
@@ -95,6 +95,12 @@ const images = [
     width:'100%'
   },
 ];
+
+//
+
+
+
+
 
 //
 
@@ -302,18 +308,18 @@ const App = () => {
         justifyContent="center"
         alignItems="center"
       >
-        {Items.map(({ name, image }, index) => (
+        {Items.map(({ productName, image }, index) => (
           <Grid key={index} item>
             <Card flex={1}>
               <CardMedia
                 component="img"
                 height="250"
                 image={image}
-                alt={name}
+                alt={productName}
               />
               <CardContent>
                 <Typography variant="h5" color="textPrimary">
-                  {name}
+                  {productName}
                 </Typography>
               </CardContent>
               <CardActions>
@@ -327,7 +333,8 @@ const App = () => {
           </Grid>
         ))}
       </Grid>
-          
+
+
     
     </React.Fragment>
   );
