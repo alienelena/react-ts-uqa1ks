@@ -118,9 +118,6 @@ condition:'Condition',
 quantity:'Quantity',
 };
 
-
-//
-
 const App = () => {
 
   const [clickedButton, setClickedButton] = useState('');
@@ -196,6 +193,8 @@ const App = () => {
     backgroundPosition: 'center 40%',
   });
 
+  //remove item
+  
   
   return (
     <React.Fragment>
@@ -379,7 +378,7 @@ const App = () => {
               <TableCell component="th">{row.productName}</TableCell>
               <TableCell align="center">{row.condition}</TableCell>
               <TableCell align="center">{row.quantity}</TableCell>
-              <IconButton><DeleteIcon onClick={} /></IconButton>
+              <IconButton aria-lable="delete" onClick={}><DeleteIcon/></IconButton>
             </TableRow>
           ))}
         </TableBody>
