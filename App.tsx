@@ -109,6 +109,9 @@ function createData(
 
 const rows = [
   createData(1,'ABC','ASD',0),
+  createData(2,'ABC','ASD',0),
+  createData(3,'ABC','ASD',0),
+  createData(4,'ABC','ASD',0),
 ];
 
 const tableHeaders = {
@@ -194,7 +197,7 @@ const App = () => {
   });
 
   //remove item
-  
+ 
   
   return (
     <React.Fragment>
@@ -219,6 +222,7 @@ const App = () => {
           <ImageButton
           focusRipple
           key={image.title}
+
             style={{
               width: image.width,
             }}
@@ -369,16 +373,16 @@ const App = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {rows.map((item) => (
             <TableRow
-              key={row.index}
+              key={item.index}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell component="th">{row.index}</TableCell>
-              <TableCell component="th">{row.productName}</TableCell>
-              <TableCell align="center">{row.condition}</TableCell>
-              <TableCell align="center">{row.quantity}</TableCell>
-              <IconButton aria-lable="delete" onClick={}><DeleteIcon/></IconButton>
+              <TableCell component="th">{item.index}</TableCell>
+              <TableCell component="th">{item.productName}</TableCell>
+              <TableCell align="center">{item.condition}</TableCell>
+              <TableCell align="center">{item.quantity}</TableCell>
+              <IconButton aria-lable="delete"><DeleteIcon/></IconButton>
             </TableRow>
           ))}
         </TableBody>
