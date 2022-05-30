@@ -38,6 +38,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
+import { positions } from '@mui/system';
 
 const Items = [
   {
@@ -353,15 +354,19 @@ const App = () => {
       <Grid Container sx={{p:4}}>
       </Grid>
 
-
+<Box sx={{width:1/2,      
+          position: 'absolute',
+          left: '25%',
+          zIndex: 'modal',}}>
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Index</TableCell>
-            <TableCell align="right">Product Name</TableCell>
-            <TableCell align="right">Condition</TableCell>
-            <TableCell align="right">Quantity</TableCell>
+            <TableCell align="left">Product Name</TableCell>
+            <TableCell align="center">Condition</TableCell>
+            <TableCell align="center">Quantity</TableCell>
+            <TableCell> </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -372,14 +377,15 @@ const App = () => {
             >
               <TableCell component="th">{row.index}</TableCell>
               <TableCell component="th">{row.productName}</TableCell>
-              <TableCell align="right">{row.condition}</TableCell>
-              <TableCell align="right">{row.quantity}</TableCell>
+              <TableCell align="center">{row.condition}</TableCell>
+              <TableCell align="center">{row.quantity}</TableCell>
+              <IconButton><DeleteIcon onClick={} /></IconButton>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
-
+</Box>
 
 
 
