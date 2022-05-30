@@ -130,7 +130,7 @@ const App = () => {
     const button: HTMLButtonElement = event.currentTarget;
     setClickedButton(button.name);
   };
-//
+//Banner
   const ImageButton = styled(ButtonBase)(({ theme }) => ({
     position: 'relative',
     height: 200,
