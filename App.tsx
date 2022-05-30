@@ -194,7 +194,8 @@ const App = () => {
     backgroundSize: 'cover',
     backgroundPosition: 'center 40%',
   });
-//
+
+  
   return (
     <React.Fragment>
       <CssBaseline />
