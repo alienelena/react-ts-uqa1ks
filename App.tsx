@@ -118,13 +118,13 @@ const rows = [
 
 const App = () => {
 
-  const [records, setRecords] = useState([]);
-  let detail = {conditionname};
-  const addRecord = (detail) => {
-  let newRecords = [...records];
-  newRecords.push(detail);
-  setRecords(newRecords);
-}
+//   const [records, setRecords] = useState([]);
+//   let detail = {conditionname};
+//   const addRecord = (detail) => {
+//   let newRecords = [...records];
+//   newRecords.push(detail);
+//   setRecords(newRecords);
+// }
 
   const [clickedButton, setClickedButton] = useState('');
 
