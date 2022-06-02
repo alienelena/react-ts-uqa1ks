@@ -55,7 +55,7 @@ const items = [
     productname: 'DJI FPV',
     image:
       'https://www.scandinavianphoto.se/globalassets/1050797.jpg?ref=81F07EDA5A&w=960&h=960&mode=max',
-  }, 
+  },
 ];
 
 const conditions = [
@@ -114,6 +114,14 @@ const rows = [
 ];
 
 
+
+const [records, setRecords] = useState([]);
+let detail = {conditionname};
+const addRecord = (detail) => {
+  let newRecords = [...records];
+  newRecords.push(detail);
+  setRecords(newRecords);
+}
 
 const App = () => {
   const [clickedButton, setClickedButton] = useState('');
@@ -324,7 +332,7 @@ const App = () => {
         justifyContent="center"
         alignItems="center"
       >
-        {items.map(({ productname, image}, index) => (
+        {items.map(({ productname, image }, index) => (
           <Grid key={index} item>
             <Card flex={1}>
               <CardMedia
