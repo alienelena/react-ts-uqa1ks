@@ -18,7 +18,7 @@ import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Link from '@mui/material/Link';
 import { purple } from '@mui/material/colors';
-import { useState } from "react";
+import { useState } from 'react';
 import { alpha } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -40,22 +40,22 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { positions } from '@mui/system';
 
-const Items = [
+const items = [
   {
-    productName: 'DJI Mini3 Pro',
+    productname: 'DJI Mini3 Pro',
     image:
       'https://www.bhphotovideo.com/images/images1500x1500/dji_cp_ma_00000492_02_mini_3_pro_with_1700260.jpg',
   },
   {
-    productName: 'DJI Air 2S',
+    productname: 'DJI Air 2S',
     image:
       'https://www.fortress.com.hk/medias/1-inch-CMOS-Sensor-12312360.jpg?context=bWFzdGVyfGZyb250em9vbXw1NDUyNnxpbWFnZS9qcGVnfGZyb250em9vbS9oNDcvaDAyLzk3MjM5MjEyMzU5OTguanBnfDBiODcxZmQ5MWRkYjA5ZDRmZDZmY2U4ZDcyOTQ2ODY4ZWJlMDA5YjEyN2ZlNjRkNjgzMzUxZGRjN2NkNGRmMjc',
   },
   {
-    productName: 'DJI FPV',
+    productname: 'DJI FPV',
     image:
       'https://www.scandinavianphoto.se/globalassets/1050797.jpg?ref=81F07EDA5A&w=960&h=960&mode=max',
-  },
+  }, 
 ];
 
 const conditions = [
@@ -63,66 +63,79 @@ const conditions = [
     size: 'small',
     color: 'success',
     variant: 'contained',
-    conditionName: '良品',
+    conditionname: '良品',
   },
   {
     size: 'small',
     color: 'secondary',
     variant: 'contained',
-    conditionName: '二手',
+    conditionname: '二手',
   },
   {
     size: 'small',
     color: 'error',
     variant: 'contained',
-    conditionName: '不良',
+    conditionname: '不良',
   },
   {
     size: 'small',
     variant: 'contained',
-    conditionName: '缺貨',
+    conditionname: '缺貨',
   },
   {
     size: 'small',
     variant: 'outlined',
-    conditionName: '發霉',
+    conditionname: '發霉',
   },
 ];
 
 const images = [
   {
-    url:'https://cdn.shopify.com/s/files/1/0253/9057/9791/files/banner-bg-70e8e8aba7fefef8156830bddbc3f151_1024x1024.jpg?v=1567792030',
-    title:'DJI Home Banner',
-    width:'100%'
+    url: 'https://cdn.shopify.com/s/files/1/0253/9057/9791/files/banner-bg-70e8e8aba7fefef8156830bddbc3f151_1024x1024.jpg?v=1567792030',
+    title: 'DJI Home Banner',
+    width: '100%',
   },
 ];
-
 //
 function createData(
   index: number,
   productName: string,
   condition: string,
-  quantity: number,
+  quantity: number
 ) {
-  return { index, productName, condition, quantity};
+  return { index, productName, condition, quantity };
 }
 
 const rows = [
-  createData(1,'ABC','ASD',0),
-  createData(2,'ABC','ASD',0),
-  createData(3,'ABC','ASD',0),
-  createData(4,'ABC','ASD',0),
+  createData(1, 'ABC', 'ASD', 0),
+  createData(2, 'ABC', 'ASD', 0),
+  createData(3, 'ABC', 'ASD', 0),
+  createData(4, 'ABC', 'ASD', 0),
 ];
 
-const tableHeaders = {
-index: 'Index',
-productName: 'Product Name', 
-condition:'Condition', 
-quantity:'Quantity',
+//
+const RecordsForm = ({onAdd}) => {
+  const conditions = ['良品', '二手', '不良', '缺貨', '發霉'];
+  const template = {
+    conditions: conditions[0],
+  };
+  const [records, setRecords] = useState({...template});
+}
+
+//save
+const {
+  conditions
+} = records;
+
+const addRecord = (detail) => {
+  let newRecords = [...records];
+  newRecords.push(detail);
+  setRecords(newRecords);
 };
 
-const App = () => {
 
+
+const App = () => {
   const [clickedButton, setClickedButton] = useState('');
 
   const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -131,7 +144,7 @@ const App = () => {
     const button: HTMLButtonElement = event.currentTarget;
     setClickedButton(button.name);
   };
-//Banner
+  //Banner
   const ImageButton = styled(ButtonBase)(({ theme }) => ({
     position: 'relative',
     height: 200,
@@ -152,7 +165,7 @@ const App = () => {
       },
     },
   }));
-  
+
   const Image = styled('span')(({ theme }) => ({
     position: 'absolute',
     left: 0,
@@ -164,7 +177,7 @@ const App = () => {
     justifyContent: 'center',
     color: theme.palette.common.white,
   }));
-  
+
   const ImageBackdrop = styled('span')(({ theme }) => ({
     position: 'absolute',
     left: 0,
@@ -175,7 +188,7 @@ const App = () => {
     opacity: 0.4,
     transition: theme.transitions.create('opacity'),
   }));
-  
+
   const ImageMarked = styled('span')(({ theme }) => ({
     height: 3,
     width: 18,
@@ -196,9 +209,6 @@ const App = () => {
     backgroundPosition: 'center 40%',
   });
 
-  //remove item
- 
-  
   return (
     <React.Fragment>
       <CssBaseline />
@@ -216,38 +226,43 @@ const App = () => {
           }}
         >
           <div>
-
-    <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%' }}>
-            {images.map((image) => (
-          <ImageButton
-          focusRipple
-          key={image.title}
-
-            style={{
-              width: image.width,
-            }}
-          >
-          <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
-          <ImageBackdrop className="MuiImageBackdrop-root" />
-          <Image>
-            <Typography
-              component="span"
-              variant="subtitle1"
-              color="inherit"
+            <Box
               sx={{
-                position: 'relative',
-                p: 4,
-                pt: 2,
-                pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+                display: 'flex',
+                flexWrap: 'wrap',
+                minWidth: 300,
+                width: '100%',
               }}
             >
-              {image.title}
-              <ImageMarked className="MuiImageMarked-root" />
-            </Typography>
-          </Image>
-        </ImageButton>
-      ))}
-    </Box>
+              {images.map((image) => (
+                <ImageButton
+                  focusRipple
+                  key={image.title}
+                  style={{
+                    width: image.width,
+                  }}
+                >
+                  <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
+                  <ImageBackdrop className="MuiImageBackdrop-root" />
+                  <Image>
+                    <Typography
+                      component="span"
+                      variant="subtitle1"
+                      color="inherit"
+                      sx={{
+                        position: 'relative',
+                        p: 4,
+                        pt: 2,
+                        pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+                      }}
+                    >
+                      {image.title}
+                      <ImageMarked className="MuiImageMarked-root" />
+                    </Typography>
+                  </Image>
+                </ImageButton>
+              ))}
+            </Box>
 
             <Grid
               container
@@ -315,10 +330,10 @@ const App = () => {
       </main>
 
       <Grid Container>
-       <Typography size="small" color="textPrimary" align="center" spacing={2}>
-        {clickedButton !== ""
-          ? `You have clicked "${clickedButton}"` 
-          : "No button clicked yet"}
+        <Typography size="small" color="textPrimary" align="center" spacing={2}>
+          {clickedButton !== ''
+            ? `You have clicked "${clickedButton}"`
+            : 'No button clicked yet'}
         </Typography>
       </Grid>
 
@@ -329,24 +344,30 @@ const App = () => {
         justifyContent="center"
         alignItems="center"
       >
-        {Items.map(({ productName, image }, index) => (
+        {items.map(({ productname, image}, index) => (
           <Grid key={index} item>
             <Card flex={1}>
               <CardMedia
                 component="img"
                 height="250"
                 image={image}
-                alt={productName}
+                alt={productname}
               />
               <CardContent>
                 <Typography variant="h5" color="textPrimary">
-                  {productName}
+                  {productname}
                 </Typography>
               </CardContent>
               <CardActions>
-                {conditions.map(({ conditionName, ...props }, index) => (
-                  <Button key={index} {...props} onClick={buttonHandler} className="button" name={productName+conditionName}>
-                    {conditionName}
+                {conditions.map(({ conditionname, ...props }, index) => (
+                  <Button
+                    key={index}
+                    {...props}
+                    onClick={addRecord}
+                    className="button"
+                    name={productname + conditionname}
+                  >
+                    {conditionname}
                   </Button>
                 ))}
               </CardActions>
@@ -354,46 +375,47 @@ const App = () => {
           </Grid>
         ))}
       </Grid>
-      <Grid Container sx={{p:4}}>
-      </Grid>
 
-<Box sx={{width:1/2,      
+      <Grid Container sx={{ p: 4 }}></Grid>
+
+      <Box
+        sx={{
+          width: 1 / 2,
           position: 'absolute',
           left: '25%',
-          zIndex: 'modal',}}>
-      <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Index</TableCell>
-            <TableCell align="left">Product Name</TableCell>
-            <TableCell align="center">Condition</TableCell>
-            <TableCell align="center">Quantity</TableCell>
-            <TableCell> </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((item) => (
-            <TableRow
-              key={item.index}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th">{item.index}</TableCell>
-              <TableCell component="th">{item.productName}</TableCell>
-              <TableCell align="center">{item.condition}</TableCell>
-              <TableCell align="center">{item.quantity}</TableCell>
-              <IconButton aria-lable="delete"><DeleteIcon/></IconButton>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-</Box>
-
-
-
-
-    
+          zIndex: 'modal',
+        }}
+      >
+        <TableContainer component={Paper} onAdd={addRecord}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Index</TableCell>
+                <TableCell align="left">Product Name</TableCell>
+                <TableCell align="center">Condition</TableCell>
+                <TableCell align="center">Quantity</TableCell>
+                <TableCell> </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((item) => (
+                <TableRow
+                  key={item.index}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell component="th">{item.index}</TableCell>
+                  <TableCell component="th">{item.productName}</TableCell>
+                  <TableCell align="center">{item.condition}</TableCell>
+                  <TableCell align="center">{item.quantity}</TableCell>
+                  <IconButton aria-lable="delete">
+                    <DeleteIcon />
+                  </IconButton>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Box>
     </React.Fragment>
   );
 };
