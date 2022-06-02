@@ -113,26 +113,6 @@ const rows = [
   createData(4, 'ABC', 'ASD', 0),
 ];
 
-//
-const RecordsForm = ({onAdd}) => {
-  const conditions = ['良品', '二手', '不良', '缺貨', '發霉'];
-  const template = {
-    conditions: conditions[0],
-  };
-  const [records, setRecords] = useState({...template});
-}
-
-//save
-const {
-  conditions
-} = records;
-
-const addRecord = (detail) => {
-  let newRecords = [...records];
-  newRecords.push(detail);
-  setRecords(newRecords);
-};
-
 
 
 const App = () => {
@@ -363,7 +343,7 @@ const App = () => {
                   <Button
                     key={index}
                     {...props}
-                    onClick={addRecord}
+                    onClick={buttonHandler}
                     className="button"
                     name={productname + conditionname}
                   >
@@ -386,7 +366,7 @@ const App = () => {
           zIndex: 'modal',
         }}
       >
-        <TableContainer component={Paper} onAdd={addRecord}>
+        <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
