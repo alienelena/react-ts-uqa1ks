@@ -115,15 +115,17 @@ const rows = [
 
 
 
-const [records, setRecords] = useState([]);
-let detail = {conditionname};
-const addRecord = (detail) => {
+
+const App = () => {
+
+  const [records, setRecords] = useState([]);
+  let detail = {conditionname};
+  const addRecord = (detail) => {
   let newRecords = [...records];
   newRecords.push(detail);
   setRecords(newRecords);
 }
 
-const App = () => {
   const [clickedButton, setClickedButton] = useState('');
 
   const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
